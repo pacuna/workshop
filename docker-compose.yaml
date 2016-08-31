@@ -1,0 +1,19 @@
+version: '2'
+services:
+  webapp_setup:
+    build: .
+    depends_on:
+      - postgres
+    entrypoint: ./setup.sh
+  webapp:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - "80:3000"
+  postgres:
+    image: postgres:9.5.3
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_USER=workshop
+      - POSTGRES_DB=workshop_development
