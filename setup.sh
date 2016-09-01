@@ -8,4 +8,4 @@ done
 
 echo "PostgreSQL started"
 
-rake db:migrate
+/usr/local/bundle/bin/rake db:migrate
