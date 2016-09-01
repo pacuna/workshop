@@ -9,6 +9,6 @@ spec:
     spec:
       containers:
       - name: setup
-        image: pacuna/workshop:1.0.2
+        image: pacuna/workshop:1.0.0
         command: ["/bin/bash", "./setup.sh"]
       restartPolicy: Never
