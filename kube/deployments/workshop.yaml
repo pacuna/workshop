@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: workshop
+  labels:
+    app: workshop
+spec:
+  ports:
+    - port: 80
+  selector:
+    app: workshop
+  type: LoadBalancer
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: workshop
+  labels:
+    app: workshop
+spec:
+  template:
+    metadata:
+      labels:
+        app: workshop
+    spec:
+      containers:
+      - image: pacuna/workshop:1.0.0
+        name: workshop
+        ports:
+        - containerPort: 80
+          name: workshop
+        imagePullPolicy: Always
